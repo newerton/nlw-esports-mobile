@@ -18,7 +18,7 @@ export type DuoCardProps = {
 
 type Props = {
   data: DuoCardProps;
-  onConnect: () => void;
+  onConnect: (discord: string) => void;
 };
 
 export function DuoCard({ data, onConnect }: Props) {
@@ -38,7 +38,7 @@ export function DuoCard({ data, onConnect }: Props) {
         }
       />
 
-      <TouchableOpacity style={styles.button} onPress={onConnect}>
+      <TouchableOpacity style={styles.button} onPress={() => onConnect(data.id)}>
         <GameController color={THEME.COLORS.TEXT} size={20} />
         <Text style={styles.buttonTitle}>Conectar</Text>
       </TouchableOpacity>

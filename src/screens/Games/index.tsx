@@ -14,22 +14,33 @@ import { GamesParams } from "../../@types/navigation";
 import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
 import { THEME } from "@theme/index";
 import { DuoCard, DuoCardProps } from "@components/DuoCard";
+import { DuoMatch } from "@components/DuoMatch";
 
 export function Games() {
-  const [ads, setAds] = useState<DuoCardProps[]>([]);
   const route = useRoute();
-  const game = route.params as GamesParams;
   const navigation = useNavigation();
+  const [ads, setAds] = useState<DuoCardProps[]>([]);
+  const [discordSelected, setDiscordSelected] = useState("");
 
-  function handleGoBack() {
-    navigation.goBack();
-  }
+  const game = route.params as GamesParams;
 
   useEffect(() => {
     fetch(`http://192.168.100.10:3000/games/${game.id}/ads`)
       .then((response) => response.json())
       .then((data) => setAds(data));
   }, []);
+
+  function handleGoBack() {
+    navigation.goBack();
+  }
+
+  function handleDiscordSelected(adsId: string) {
+    if (adsId.length > 0) {
+      fetch(`http://192.168.100.10:3000/ads/${adsId}/discord`)
+        .then((response) => response.json())
+        .then((data) => setDiscordSelected(data.discord));
+    }
+  }
 
   return (
     <Background>
@@ -59,7 +70,7 @@ export function Games() {
           data={ads}
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
-            <DuoCard data={item} onConnect={() => {}} />
+            <DuoCard data={item} onConnect={handleDiscordSelected} />
           )}
           horizontal={true}
           style={[styles.containerList]}
@@ -73,6 +84,11 @@ export function Games() {
               Não há anuncios publicados ainda.
             </Text>
           )}
+        />
+        <DuoMatch
+          visible={discordSelected.length > 0}
+          discord={discordSelected}
+          onClose={() => setDiscordSelected("")}
         />
       </SafeAreaView>
     </Background>
