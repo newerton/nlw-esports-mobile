@@ -8,7 +8,9 @@ export async function getPushNotificationToken() {
   }
 
   if (granted) {
-    const pushToken = await Notifications.getExpoPushTokenAsync();
+    const pushToken = await Notifications.getExpoPushTokenAsync({
+      projectId: '98efda10-e81a-4ded-ac96-313fbb0b17c9',
+    });
     console.log({ pushToken });
     return pushToken;
   }

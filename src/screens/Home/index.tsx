@@ -17,7 +17,8 @@ export function Home() {
   useEffect(() => {
     fetch("http://192.168.100.10:3000/games")
       .then((response) => response.json())
-      .then((data) => setGames(data));
+      .then((data) => setGames(data))
+      .catch(() => []);
   }, []);
 
   function handleOpenGame({ id, title, bannerUrl }: GameCardProps) {
