@@ -24,7 +24,7 @@
     "phosphor-react-native": "^2.3.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-native": "^0.79.2",
+    "react-native": "^0.82.1",
     "react-native-gesture-handler": "^2.25.0",
     "react-native-safe-area-context": "^5.4.0",
     "react-native-screens": "^4.10.0",
