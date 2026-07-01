@@ -1,5 +1,5 @@
-import { THEME } from "@theme/index";
-import { StyleSheet } from "react-native";
+import { THEME } from '@theme/index';
+import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   container: {
@@ -14,9 +14,9 @@ export const styles = StyleSheet.create({
     height: 36,
     borderRadius: 6,
     backgroundColor: THEME.COLORS.PRIMARY,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   buttonTitle: {
     color: THEME.COLORS.TEXT,

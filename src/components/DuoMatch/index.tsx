@@ -1,20 +1,19 @@
-import { useState } from "react";
+import { Heading } from '@components/Heading';
+import { MaterialIcons } from '@expo/vector-icons';
+import { THEME } from '@theme/index';
+import * as Clipboard from 'expo-clipboard';
+import { CheckCircle } from 'phosphor-react-native';
+import { useState } from 'react';
 import {
+  ActivityIndicator,
+  Alert,
   Modal,
-  ModalProps,
+  type ModalProps,
   Text,
   TouchableOpacity,
   View,
-  Alert,
-  ActivityIndicator,
-} from "react-native";
-import { MaterialIcons } from "@expo/vector-icons";
-import { styles } from "./styles";
-import { THEME } from "@theme/index";
-import { CheckCircle } from "phosphor-react-native";
-import { Heading } from "@components/Heading";
-
-import * as Clipboard from "expo-clipboard";
+} from 'react-native';
+import { styles } from './styles';
 
 type DuoMatchProps = ModalProps & {
   discord: string;
@@ -27,8 +26,8 @@ export function DuoMatch({ discord, onClose, ...rest }: DuoMatchProps) {
     setIsCopyToClipboard(true);
     await Clipboard.setStringAsync(discord);
     Alert.alert(
-      "Discord copiado",
-      `Usuário ${discord} copiado para você colar no Discord.`
+      'Discord copiado',
+      `Usuário ${discord} copiado para você colar no Discord.`,
     );
     setIsCopyToClipboard(false);
   };
@@ -48,7 +47,7 @@ export function DuoMatch({ discord, onClose, ...rest }: DuoMatchProps) {
           <Heading
             title="Let's play"
             subtitle="Agora é só começar a jogar!"
-            style={{ alignItems: "center", marginTop: 24 }}
+            style={{ alignItems: 'center', marginTop: 24 }}
           />
 
           <Text style={styles.label}>Adicione no Discord</Text>
@@ -58,7 +57,11 @@ export function DuoMatch({ discord, onClose, ...rest }: DuoMatchProps) {
             disabled={isCopyToClipboard}
           >
             <Text style={styles.discord}>
-              {isCopyToClipboard ? <ActivityIndicator color={THEME.COLORS.PRIMARY} /> : discord}
+              {isCopyToClipboard ? (
+                <ActivityIndicator color={THEME.COLORS.PRIMARY} />
+              ) : (
+                discord
+              )}
             </Text>
           </TouchableOpacity>
         </View>

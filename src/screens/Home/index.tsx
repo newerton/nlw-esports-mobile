@@ -1,30 +1,28 @@
-import { FlatList, Image } from "react-native";
-
-import logo from "@assets/images/logo-nlw-esports.png";
-
-import { styles } from "./styles";
-import { Heading } from "@components/Heading";
-import { GameCard, GameCardProps } from "@components/GameCard";
-import { useEffect, useState } from "react";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { Background } from "@components/Background";
-import { useNavigation } from "@react-navigation/native";
+import logo from '@assets/images/logo-nlw-esports.png';
+import { Background } from '@components/Background';
+import { GameCard, type GameCardProps } from '@components/GameCard';
+import { Heading } from '@components/Heading';
+import { useNavigation } from '@react-navigation/native';
+import { useEffect, useState } from 'react';
+import { FlatList, Image } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { styles } from './styles';
 
 export function Home() {
   const [games, setGames] = useState<GameCardProps[]>([]);
   const navigation = useNavigation();
 
   useEffect(() => {
-    fetch("http://192.168.100.10:3000/games")
+    fetch('http://192.168.100.10:3000/games')
       .then((response) => response.json())
       .then((data) => setGames(data))
       .catch(() => []);
   }, []);
 
   function handleOpenGame({ id, title, bannerUrl }: GameCardProps) {
-    navigation.navigate("game", { id, title, bannerUrl });
+    navigation.navigate('game', { id, title, bannerUrl });
   }
-  
+
   return (
     <Background>
       <SafeAreaView style={styles.container}>

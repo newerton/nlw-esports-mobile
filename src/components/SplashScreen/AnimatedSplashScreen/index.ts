@@ -1,1 +1,1 @@
-export * from './AnimatedSplashScreen'
+export * from './AnimatedSplashScreen';

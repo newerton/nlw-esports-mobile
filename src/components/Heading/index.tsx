@@ -1,5 +1,5 @@
-import { Text, View, ViewProps } from "react-native";
-import { styles } from "./styles";
+import { Text, View, type ViewProps } from 'react-native';
+import { styles } from './styles';
 
 type HeadingProps = ViewProps & {
   title: string;

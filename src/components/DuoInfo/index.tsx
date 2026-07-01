@@ -1,7 +1,7 @@
-import { THEME } from "@theme/index";
-import { ColorValue, Text, View } from "react-native";
+import { THEME } from '@theme/index';
+import { type ColorValue, Text, View } from 'react-native';
 
-import { styles } from "./styles";
+import { styles } from './styles';
 
 type DuoInfoProps = {
   label: string;

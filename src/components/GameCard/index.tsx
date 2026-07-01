@@ -1,12 +1,12 @@
-import { THEME } from "@theme/index";
-import { LinearGradient } from "expo-linear-gradient";
+import { THEME } from '@theme/index';
+import { LinearGradient } from 'expo-linear-gradient';
 import {
   ImageBackground,
   Text,
   TouchableOpacity,
-  TouchableOpacityProps,
-} from "react-native";
-import { styles } from "./styles";
+  type TouchableOpacityProps,
+} from 'react-native';
+import { styles } from './styles';
 
 export type GameCardProps = {
   id: string;

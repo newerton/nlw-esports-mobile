@@ -1,10 +1,10 @@
-import { DuoInfo } from "@components/DuoInfo";
-import { THEME } from "@theme/index";
-import { GameController } from "phosphor-react-native";
-import { Text, View } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { DuoInfo } from '@components/DuoInfo';
+import { THEME } from '@theme/index';
+import { GameController } from 'phosphor-react-native';
+import { Text, View } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
-import { styles } from "./styles";
+import { styles } from './styles';
 
 export type DuoCardProps = {
   id: string;
@@ -32,13 +32,16 @@ export function DuoCard({ data, onConnect }: Props) {
       />
       <DuoInfo
         label="Chamada de áudio?"
-        value={data.useVoiceChannel ? "Sim" : "Não"}
+        value={data.useVoiceChannel ? 'Sim' : 'Não'}
         colorValue={
           data.useVoiceChannel ? THEME.COLORS.SUCCESS : THEME.COLORS.ALERT
         }
       />
 
-      <TouchableOpacity style={styles.button} onPress={() => onConnect(data.id)}>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => onConnect(data.id)}
+      >
         <GameController color={THEME.COLORS.TEXT} size={20} />
         <Text style={styles.buttonTitle}>Conectar</Text>
       </TouchableOpacity>

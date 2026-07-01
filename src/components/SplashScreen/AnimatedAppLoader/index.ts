@@ -1,1 +1,1 @@
-export * from './AnimatedAppLoader'
+export * from './AnimatedAppLoader';

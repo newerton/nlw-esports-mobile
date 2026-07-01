@@ -1,8 +1,6 @@
-import { ImageBackground } from "react-native";
-
-import { styles } from "./styles";
-
-import backgroundImage from "@assets/images/background-galaxy.png";
+import backgroundImage from '@assets/images/background-galaxy.png';
+import { ImageBackground } from 'react-native';
+import { styles } from './styles';
 
 type BackgroundProps = {
   children: React.ReactNode;

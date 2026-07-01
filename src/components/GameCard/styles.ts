@@ -1,5 +1,5 @@
-import { THEME } from "@theme/index";
-import { StyleSheet } from "react-native";
+import { THEME } from '@theme/index';
+import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   container: {
@@ -8,9 +8,9 @@ export const styles = StyleSheet.create({
   cover: {
     width: 240,
     height: 320,
-    justifyContent: "flex-end",
+    justifyContent: 'flex-end',
     borderRadius: 8,
-    overflow: "hidden",
+    overflow: 'hidden',
   },
   footer: {
     width: '100%',
@@ -21,11 +21,11 @@ export const styles = StyleSheet.create({
   name: {
     color: THEME.COLORS.TEXT,
     fontSize: THEME.FONT_SIZE.MD,
-    fontFamily: THEME.FONT_FAMILY.BOLD
+    fontFamily: THEME.FONT_FAMILY.BOLD,
   },
   ads: {
     color: THEME.COLORS.CAPTION_300,
     fontSize: THEME.FONT_SIZE.MD,
-    fontFamily: THEME.FONT_FAMILY.REGULAR
-  }
+    fontFamily: THEME.FONT_FAMILY.REGULAR,
+  },
 });

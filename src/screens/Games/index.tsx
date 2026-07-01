@@ -1,26 +1,23 @@
-import { useState, useEffect } from "react";
-import { Image, Text, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-
-import { Entypo } from "@expo/vector-icons";
-
-import logo from "@assets/images/logo-nlw-esports.png";
-
-import { styles } from "./styles";
-import { Heading } from "@components/Heading";
-import { Background } from "@components/Background";
-import { useNavigation, useRoute } from "@react-navigation/native";
-import { GamesParams } from "../../@types/navigation";
-import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
-import { THEME } from "@theme/index";
-import { DuoCard, DuoCardProps } from "@components/DuoCard";
-import { DuoMatch } from "@components/DuoMatch";
+import logo from '@assets/images/logo-nlw-esports.png';
+import { Background } from '@components/Background';
+import { DuoCard, type DuoCardProps } from '@components/DuoCard';
+import { DuoMatch } from '@components/DuoMatch';
+import { Heading } from '@components/Heading';
+import { Entypo } from '@expo/vector-icons';
+import { useNavigation, useRoute } from '@react-navigation/native';
+import { THEME } from '@theme/index';
+import { useEffect, useState } from 'react';
+import { Image, Text, View } from 'react-native';
+import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import type { GamesParams } from '../../@types/navigation';
+import { styles } from './styles';
 
 export function Games() {
   const route = useRoute();
   const navigation = useNavigation();
   const [ads, setAds] = useState<DuoCardProps[]>([]);
-  const [discordSelected, setDiscordSelected] = useState("");
+  const [discordSelected, setDiscordSelected] = useState('');
 
   const game = route.params as GamesParams;
 
@@ -28,7 +25,7 @@ export function Games() {
     fetch(`http://192.168.100.10:3000/games/${game.id}/ads`)
       .then((response) => response.json())
       .then((data) => setAds(data));
-  }, []);
+  }, [game.id]);
 
   function handleGoBack() {
     navigation.goBack();
@@ -88,7 +85,7 @@ export function Games() {
         <DuoMatch
           visible={discordSelected.length > 0}
           discord={discordSelected}
-          onClose={() => setDiscordSelected("")}
+          onClose={() => setDiscordSelected('')}
         />
       </SafeAreaView>
     </Background>

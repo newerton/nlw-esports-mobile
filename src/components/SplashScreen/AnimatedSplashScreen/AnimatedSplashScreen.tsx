@@ -1,9 +1,8 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import Constants from 'expo-constants';
 
-import * as SplashScreen from "expo-splash-screen";
-
-import { Animated, StyleSheet, View } from "react-native";
-import Constants from "expo-constants";
+import * as SplashScreen from 'expo-splash-screen';
+import { useCallback, useEffect, useMemo, useState } from 'react';
+import { Animated, StyleSheet, View } from 'react-native';
 
 export function AnimatedSplashScreen({ children, image }) {
   const animation = useMemo(() => new Animated.Value(1), []);
@@ -18,7 +17,7 @@ export function AnimatedSplashScreen({ children, image }) {
         useNativeDriver: true,
       }).start(() => setAnimationComplete(true));
     }
-  }, [isAppReady]);
+  }, [isAppReady, animation]);
 
   const onImageLoaded = useCallback(async () => {
     try {
@@ -49,9 +48,9 @@ export function AnimatedSplashScreen({ children, image }) {
         >
           <Animated.Image
             style={{
-              width: "100%",
-              height: "100%",
-              resizeMode: Constants.manifest.splash.resizeMode || "contain",
+              width: '100%',
+              height: '100%',
+              resizeMode: Constants.manifest.splash.resizeMode || 'contain',
               transform: [
                 {
                   scale: animation,

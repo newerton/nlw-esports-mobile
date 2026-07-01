@@ -1,7 +1,7 @@
-import * as Font from "expo-font";
+import * as Font from 'expo-font';
 
 export const cacheFonts = async (
-  fonts: string | Record<string, Font.FontSource>
+  fonts: string | Record<string, Font.FontSource>,
 ) => {
   return Font.loadAsync(fonts);
 };
